@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+}
+
+h3{
+    color: mintcream;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    margin: 8 auto;
+
+}
+
+header{
+    background-color: royalblue;
+    width: 100%;
+    padding: 32px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.links{
+    font-size: 24px;
+}
+
+.links a + a{
+    margin: 50px;
+}
+
+.links a{
+    text-decoration: none;
+    color: midnightblue;
+    position: relative;
+}
+
+.links a.active{
+    font-weight: bold;
+    color: mintcream;
+}
+
+.links a:hover{
+    color: mintcream;
+}
+
+.links a::after{
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: mintcream;
+    position: absolute;
+    left: 0;
+    bottom: -4px;  
+}
+
+.links a:hover::after{
+    transition: width 200ms ease-in-out ; 
+    width: 100%;
+}
+
+/* === CARD ===*/
+
+.card{
+    background-color: royalblue;
+    width: 800px;
+    min-height: 400px;
+    margin: 80px auto;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    box-shadow: 0px 4px 8px 4px rgba(4, 5, 85, 1);
+    animation: up 300ms ease-in;
+}
+
+@keyframes up{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+/* === INFOS === */
+
+.infos{
+    padding: 24px;
+}
+.infos .item{
+    border-top: 2px solid midnightblue;
+    padding: 10px 0;
+    text-align: center;
+}
+.item:first-child{
+    border: none;
+}
+
+.infos .item div:nth-child(1){
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: normal;
+    color: mintcream;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.infos .item div:nth-child(2){
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.infos .item span{
+    padding: 4px 8px;
+    text-transform: uppercase;
+    background-color: yellow;
+    border-radius: 16px;
+    font-size: 16px;
+    color:black;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+/* === FORM === */
+
+input{
+    width: 100%;
+    outline: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+input[type="radio"]{
+    width: initial;
+    margin-right: 8px;
+    margin-top: 8px;
+}
+
+input::placeholder{
+    font-weight: bold;
+    color:gray;
+    font-size: 14px;
+}
+
+select{
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.submit_button{
+    width: 45%;
+    padding: 4px 8px;
+    margin-top: 32px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    float: right;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+#form_delete{
+    background-color: red;
+    color: white;
+    width: 45%;
+    padding: 4px 8px;
+    margin-top: 32px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    float: right;
+    margin-right: 16px;
+    cursor: pointer;
+}
+.button_edit{
+    background-color:white;
+    color: black;
+    width: 100%;
+    padding: 4px 8px;
+    margin-top: 32px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/*=== TABELA INDEX TEACHER ===*/
+
+.table_container{
+    display: block;/*retira o display grid que dividia a tabela em 2 colunas*/
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.table_container table{
+    border-spacing: 0;
+    width: 100%;
+}
+
+.table_container thead{
+    text-align: left;
+}
+th{
+    padding: 24px;
+    margin-top: 32px;
+}
+
+td{
+    padding: 16px;
+    border-top:  2px solid midnightblue;
+    text-align: center;
+}
+
+.materia{
+    text-align: center;
+}
+td:first-child{
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    line-height: 20px;
+}
+
+th{
+    text-transform: uppercase;
+    color: mintcream;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+tbody tr td:first-child {/*fazendo a foto do instrutor aparecer*/
+    display: grid;
+    grid-template-columns: 64px 1fr;/*esse espaço permite que a imagem apareça nos 64px e o nome fique ao lado*/
+    align-items: center;
+}
+tbody tr td:first-child span{
+
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: cover;/*cobre todo fundo*/
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px 4px rgba(4, 5, 85, 1);
+    border: 2px solid white;
+}
+
+.service{
+    padding: 4px 6px;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: yellow;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    color:black;
+    display: block;
+    margin-top: 8px;
+}
+
+tbody tr td:last-child a{
+    background-color: mintcream;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+th:last-child,
+td:last-child{
+    text-align: center;
+}
+
+/*=== FILTERS ===*/
+
+.table_container .header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center; /*alinha as duas colunas na mesma linha*/
+    margin-bottom: 32px;
+}
+
+.new_teacher{
+    margin: 0;
+    width: 150px;
+    background-color:white;
+    color: black;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 4px 8px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.table_container .header form{
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    align-items: center;
+    grid-gap: 8px;
+}
+
+.form_filter{
+    border:1px solid #eee;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    margin: 0;
+}
+.filter_button{
+    padding: 4px 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*=== Tabela Index Estudantes ===*/
+
+.new_student{
+    margin: 0;
+    width: 150px;
+    background-color:white;
+    color: black;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 4px 8px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.email,
+.year{
+    text-align: center;
+}
+
+.content_student{
+    text-align: center;
+    padding: 8px;
+    background-color: yellow;
+    font-size: 14px;
+    font-weight: bold;
+    color:black;
+    display: inline-block;
+    border-radius: 16px;
+}
+
+/*=== PAGINATION ===*/
+.table_container {
+    display: grid;
+    grid-template: 64px 1fr 16px / 1fr; /* adiciona 3 linhas e uma coluna*/
+}
+
+.table_container .header{
+    margin: 0;
+    align-self: start;
+}
+
+.table_container .pagination{
+    margin: 0;
+    align-self: end;
+    justify-self: center;
+}
+
+.pagination a,
+.pagination span{
+    color: white;
+    text-decoration: none;
+    margin-right: 16px;
+}
+
+.pagination a:hover{
+    color: midnightblue;
+    filter: brightness(0.3); /*deixa mais escuro quando passo mouse*/
+    border-bottom: 1px solid midnightblue;
+}

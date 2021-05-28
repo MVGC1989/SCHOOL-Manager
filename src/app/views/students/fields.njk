@@ -1,0 +1,125 @@
+<div class="item">
+    <div>Foto</div>
+        <div> 
+            <input 
+                type="url" 
+                name="avatar_url"
+                placeholder="htpp:// cole o url da sua foto"
+                value = "{{student.avatar_url}}"> 
+                
+        </div>
+</div>
+
+<div class="item">
+    <div>Nome do Aluno:</div>
+        <div> 
+            <input 
+                type="text" 
+                name="name"
+                placeholder="Nome do aluno"
+                value = "{{student.name}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Data de Nascimento:</div>
+        <div>
+            <input 
+                type="date" 
+                name="birth"
+                value = "{{student.birth}}">
+        </div>
+</div>
+
+<div class="item">
+    <div>E-mail:</div>
+        <div>
+            <input  
+            type="email"     
+            name="email" 
+            value="{{student.email}}">
+        </div>
+</div>
+
+<div class="item">
+    <div>Ano Escolar:</div>
+        <select name="school_year">
+            <option value="5° Ano do Ensino Fundamental"
+                {% if student.school_year == "5° Ano do Ensino Fundamental"%}
+                selected
+                {% endif %}>5° Ano do Ensino Fundamental
+            </option>
+
+            <option value="6° Ano do Ensino Fundamental"
+                {% if student.school_year == "6° Ano do Ensino Fundamental"%}
+                selected
+                {% endif %}>6° Ano do Ensino Fundamental
+            </option>
+
+            <option value="7° Ano do Ensino Fundamental"
+                {% if student.school_year == "7° Ano do Ensino Fundamental"%}
+                selected
+                {% endif %}>7° Ano do Ensino Fundamental
+            </option>
+
+            <option value="8° Ano do Ensino Fundamental"
+                {% if student.school_year == "8° Ano do Ensino Fundamental"%}
+                selected
+                {% endif %}>8° Ano do Ensino Fundamental
+            </option>
+
+            <option value="9° Ano do Ensino Fundamental"
+                {% if student.school_year == "9° Ano do Ensino Fundamental"%}
+                selected
+                {% endif %}>9° Ano do Ensino Fundamental
+            </option>
+
+            <option value="1° Ano do Ensino Médio"
+                {% if student.school_year == "1° Ano do Ensino Médio"%}
+                selected
+                {% endif %}>1° Ano do Ensino Médio
+            </option>
+
+            <option value="2° Ano do Ensino Médio"
+                {% if student.school_year == "2° Ano do Ensino Médio"%}
+                selected
+                {% endif %}>2° Ano do Ensino Médio
+            </option>
+
+            <option value="3° Ano do Ensino Médio"
+                {% if student.school_year == "3° Ano do Ensino Médio"%}
+                selected
+                {% endif %}>3° Ano do Ensino Médio
+            </option>
+        </select>
+</div>
+
+<div class="item">
+    <div>Carga Horária Semanal:</div>
+        <div>
+            <input 
+                type="number" 
+                name="weekly_workload" 
+                value="{{student.weekly_workload}}">
+        </div>
+</div>
+
+<div class="item">
+    <div>Professor(a):</div>
+    <select name="teacher">
+        {% for teacher in teacher_options %}
+            <option value="{{teacher.id}}"
+                {% if students.teacher.id== "teacher.id"%} selected {% endif %}
+                    >{{teacher.name}}
+        {% endfor %}
+            </option>
+    </select>
+</div>
+<button 
+    class="submit_button" 
+    type="submit">Salvar
+</button> <!--o submit permite que o formulário seja enviado ao servidor
+        por estar dentro do form-->
+
+
+

@@ -1,0 +1,117 @@
+<div class="item">
+    <div>Foto</div>
+        <div> 
+            <input 
+            type="url" 
+            name="avatar_url"
+            placeholder="htpp:// cole o url da sua foto"
+            value = "{{teacher.avatar_url}}"> 
+        </div>
+</div>
+
+<div class="item">
+    <div>Professor</div>
+        <div> 
+            <input 
+                type="text" 
+                name="name"
+                placeholder="Nome do Professor"
+                value = "{{teacher.name}}">
+        </div>
+</div>
+
+<div class="item">
+    <div>Data de Nascimento</div>
+        <div>
+            <input 
+                type="date" 
+                name="birth_date"
+                value = "{{teacher.birth_date}}">
+        </div>
+</div>
+
+<div class="item">
+    <div>Tipo de Aula</div>
+        <div>
+            <span>
+                <input 
+                    type="radio" 
+                    name="class_type" 
+                    value="Presencial" 
+                        {% if teacher.class_type == "Presencial"%}
+                            checked
+                        {% endif %}>Presencial
+            </span>
+
+            <span> 
+                <input 
+                    type="radio" 
+                    name="class_type" 
+                    value="EAD"
+                        {% if teacher.class_type == "EAD"%}
+                            checked
+                        {% endif %}>EAD
+            </span>
+
+            <span> 
+                <input 
+                    type="radio" 
+                    name="class_type" 
+                    value="EAD e Presencial"
+                        {% if teacher.class_type == "EAD e Presencial"%}
+                            checked
+                        {% endif %}>EAD e Presencial
+            </span>
+        </div>
+</div>
+
+<div class="item">
+    <div>Grau de Escolaridade</div>
+        <select name="education_level">
+            <option value="Ensino Médio Completo"
+                {% if teacher.education_level == "Ensino Médio Completo"%}
+                    selected
+                {% endif %}>Ensino Médio Completo
+            </option>
+
+            <option value="Ensino Superior Completo"
+                {% if teacher.education_level == "Ensino Superior Completo"%}
+                    selected
+                {% endif %}>Ensino Superior Completo
+            </option>
+
+            <option value="Pós-Graduação"
+                {% if teacher.education_level == "Pós-Graduação"%}
+                    selected
+                {% endif %}>Pós-Gradução
+            </option>
+
+            <option value="Mestrado"
+                {% if teacher.education_level == "Mestrado"%}
+                    selected
+                {% endif %}>Mestrado
+            </option>
+
+            <option value="Doutorado"
+                {% if teacher.education_level == "Doutorado"%}
+                    selected
+                {% endif %}>Doutorado
+            </option>
+        </select>
+</div>
+
+<div class="item">
+    <div>Área de Atuação</div>
+        <div>
+            <input 
+                type="text" 
+                name="subjects_taught"
+                placeholder="Separe os serviços prestados por vírgula"
+                value = "{{teacher.subjects_taught}}">
+        </div>
+</div>
+<button class="submit_button" type="submit">Salvar</button> <!--o submit permite que o formulário seja enviado ao servidor
+        por estar dentro do form-->
+
+
+

@@ -1,0 +1,65 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card table_container">
+    <div class="header">
+        <a class="new_student" href="/students/create">Novo Aluno</a>
+            <form action="/students" method="GET"><!--vai ficar na mesma página por isso get e instrcutors-->
+                <input 
+                    class="form_filter" 
+                    type="text" 
+                    name="filter" 
+                    placeholder="por nome ou e-mail..."
+                    value="{{filter}}">
+                <button 
+                    class="filter_button" 
+                    type="submit">Filtrar
+                </button>
+            </form>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Aluno</th>
+                <th class="email">E-mail</th>
+                <th class="year">Ano Escolar</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>
+                        <span style="background-image: url({{student.avatar_url}})">
+                        </span>
+                        {{student.name}}
+                    </td>
+                    <td>
+                        <div class="content_student">
+                            {{student.email}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content_student">
+                            {{student.school_year}}
+                        </div>
+                    </td>
+                    <td>
+                        <a href="/students/{{student.id}}">Ver</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="pagination"
+        data-page={{pagination.page}}
+        data-total= {{pagination.total}}
+        data-filter={{filter}}>
+    </div>
+</div>
+
+{% endblock content %}
